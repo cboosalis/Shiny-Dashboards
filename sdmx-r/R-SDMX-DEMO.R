@@ -29,8 +29,8 @@ TABLE11 <- TABLE10[TABLE10$DIRECT.SLOS == "SLO1",]
 #CONVERT DATE STRING TO NUMERIC
 TABLE12 <- mutate(TABLE11, DIRECT.TIME_PERIOD=as.Date(DIRECT.TIME_PERIOD,format="%Y-%d"))
 
-#THANK MATT
-cb= "Chris B. says, 'Matt - Thank you!'"
+#NOTE
+cb= "Demo by Chris Boosalis - SDMX Hosting by Metadata Technology"
 
 #CREATE THE CHART
 m=gvisMotionChart(TABLE12, idvar="DIRECT.ID", timevar="DIRECT.TIME_PERIOD", date.format="%Y-%d")
@@ -40,6 +40,6 @@ ComboChart <- structure(list(type='MotionChart',
                              #chartid='myComboChart', 
                              html=list(header=m$html$header,
                                        chart=list(m$html$chart), 
-                                       title="Fusion Registry to R -- ",
+                                       title="Fusion Registry Demo: SDMX to R",
                                        footer=cb)), class=c("gvis", "list"))
 plot(ComboChart)
