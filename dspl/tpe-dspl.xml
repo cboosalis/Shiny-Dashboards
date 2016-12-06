@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dspl xmlns="http://schemas.google.com/dspl/2010"
+      xmlns:entity="http://www.google.com/publicdata/dataset/google/entity"
+      xmlns:quantity="http://www.google.com/publicdata/dataset/google/quantity"
+      xmlns:unit="http://www.google.com/publicdata/dataset/google/unit"
+      xmlns:geo="http://www.google.com/publicdata/dataset/google/geo"
+      xmlns:time="http://www.google.com/publicdata/dataset/google/time">
+
+   <import namespace="http://www.google.com/publicdata/dataset/google/entity"/>
+   <import namespace="http://www.google.com/publicdata/dataset/google/quantity"/>
+   <import namespace="http://www.google.com/publicdata/dataset/google/unit"/>
+   <import namespace="http://www.google.com/publicdata/dataset/google/geo"/>
+   <import namespace="http://www.google.com/publicdata/dataset/google/time"/>
+
+   <info>
+      <name>
+         <value xml:lang="en">Teaching Peformance Expectations</value>
+      </name>
+      <description>
+         <value xml:lang="en">A DSPL Demo 
+		 </value>
+      </description>
+      <url>
+         <value xml:lang="en"></value>
+      </url>
+   </info>
+
+   <provider>
+      <name>
+         <value xml:lang="en">Blank Empty Space</value>
+      </name>
+      <description>
+         <value xml:lang="en">Blank Empty Space </value>
+      </description>
+      <url>
+         <value xml:lang="en"></value>
+      </url>
+   </provider>
+
+   <topics>
+      <topic id="industry">
+         <info>
+            <name>
+               <value xml:lang="en">Education</value>
+            </name>
+         </info>
+      </topic>
+   </topics>
+
+<concepts>
+      <concept id="program" extends="entity:entity">
+         <info>
+            <name>
+               <value xml:lang="en">College Program</value>
+            </name>
+            <description>
+               <value xml:lang="en">These are the educational programs under review.</value>
+            </description>
+            <pluralName>
+               <value xml:lang="en">Types of college</value>
+            </pluralName>
+         </info>
+         <topic ref="industry"/>
+         <type ref="string"/>
+         <attribute concept="entity:entity_order">
+            <value>TABLE</value>
+         </attribute>
+         <property id="parent" concept="program" isParent="true">
+            <info>
+               <name>
+                  <value xml:lang="en">Select College Program </value>
+               </name>
+            </info>
+         </property>
+         <defaultValue>44x72</defaultValue>
+         <table ref="program_tbl"/>
+      </concept>
+
+      <concept id="programs">
+         <info>
+            <name>
+               <value xml:lang="en">Program Type</value>
+            </name>
+            <description>
+               <value xml:lang="en">Select either the traditional program or bilingual program. Aggregated are unavailable. </value>
+            </description>
+            <pluralName>
+               <value xml:lang="en">programs</value>
+            </pluralName>
+         </info>
+         <type ref="string"/>
+         <defaultValue>Traditional Program</defaultValue>
+         <table ref="program_type_tbl"/>
+      </concept>
+
+	  <concept id="slos">
+         <info>
+            <name>
+               <value xml:lang="en">Credential Program</value>
+            </name>
+            <description>
+               <value xml:lang="en"></value>
+            </description>
+            <pluralName>
+               <value xml:lang="en">slos</value>
+            </pluralName>
+         </info>
+         <type ref="string"/>
+         <defaultValue>Multiple Subjects</defaultValue>
+         <table ref="slo_tbl"/>
+      </concept>
+	  
+     <!-- Metrics -->
+     <concept id="direct">
+         <info>
+            <name>
+               <value xml:lang="en">Direct Measure</value>
+            </name>
+            <description>
+               <value xml:lang="en">These values represent direct program measures. </value>
+            </description>
+          </info>
+          <type ref="float"/>     
+	</concept>
+       <concept id="indirect">
+         <info>
+            <name>
+               <value xml:lang="en">Indirect Measure</value>
+            </name>
+            <description>
+               <value xml:lang="en">These values represent values from indirect program measures.</value>
+            </description>
+          </info>
+          <type ref="float"/>     
+	</concept>
+ </concepts>      
+
+
+   <slices>
+      <slice id="assessment_data">
+         <dimension concept="programs"/>
+		 <dimension concept="slos"/>
+         <dimension concept="program"/>
+         <dimension concept="time:month"/>
+         <metric concept="direct"/>
+	     <metric concept="indirect"/>
+         <table ref="assessment_data_tbl">
+            <mapDimension concept="time:month" toColumn="date"/>
+            <mapDimension concept="programs" toColumn="programs"/>
+			<mapDimension concept="slos" toColumn="slos"/>
+         </table>
+      </slice>
+   </slices>
+
+   <tables>
+      <table id="program_tbl">
+         <column id="program" type="string"/>
+         <column id="name" type="string"/>
+         <column id="parent" type="string"/>
+         <data>
+            <file encoding="utf-8" format="csv">program-TPE.csv</file>
+         </data>
+      </table>
+	  
+      <table id="program_type_tbl">
+         <column id="programs" type="string"/>
+         <data>
+            <file encoding="utf-8" format="csv">program_type.csv</file>
+         </data>
+      </table>
+      
+	  <table id="slo_tbl">
+         <column id="slos" type="string"/>
+         <data>
+            <file encoding="utf-8" format="csv">slos.csv</file>
+         </data>
+      </table>
+
+      <table id="assessment_data_tbl">
+         <column id="programs" type="string"/>
+		 <column id="slos" type="string"/>
+         <column id="program" type="string"/>
+         <column format="yyyy.MM" id="date" type="date"/>
+         <column id="direct" type="float"/>
+		 <column id="indirect" type="float"/>
+         <data>
+            <file encoding="utf-8" format="csv">assessment_data.csv</file>
+         </data>
+      </table>
+
+   </tables>
+</dspl>
