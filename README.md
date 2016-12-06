@@ -4,7 +4,7 @@
 2. Navigate to https://www.google.com/publicdata/admin<br>
 3. I will comment the code eventually.<br>
 4. Samples from Google made this example possible: https://developers.google.com/public-data/docs/examples<br>
-<br>
+<P>
 <br>
 ##SDMX<br>
 1. Copy the code into R or download the file and open it in r studio.<br>
