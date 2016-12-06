@@ -6,7 +6,7 @@
 4. Samples from Google made this example possible: https://developers.google.com/public-data/docs/examples<br>
 <P>
 <br>
-##SDMX<br>
+###SDMX<br>
 1. Copy the code into R or download the file and open it in r studio.<br>
 2. Intstall the packages and add to library.<br>
 3. Run the code in blocks to see the result.<br>
