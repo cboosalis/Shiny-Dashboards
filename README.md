@@ -5,7 +5,7 @@ https://vimeo.com/175962306
 DSPL Code<br>
 1. Download the files - they need to be in a .zip folder.<br>
 2. Navigate to https://www.google.com/publicdata/admin.<br>
-3. Upload the zip and explore.
+3. Upload the zip and explore.<br>
 4. I will comment the code eventually/never.<br>
 4. Samples from Google made this example possible: https://developers.google.com/public-data/docs/examples.<br>
 <br>
