@@ -1,3 +1,4 @@
+#WARNING - I crash my browser when I run this - now you can, too!
 install.packages("RJSDMX")
 install.packages("dplyr")
 install.packages("googleVis")
