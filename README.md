@@ -1,6 +1,7 @@
 # FTC 2016 San Francisco
 Shiny Dashboards<br>
-https://distanceprep.shinyapps.io/boosalisDashboard/<br>
+<a href="https://distanceprep.shinyapps.io/boosalisDashboard/" target="_blank">https://distanceprep.shinyapps.io/boosalisDashboard/</a>
+<br>
 <br>
 DSPL Demo<br>
 https://vimeo.com/175962306 
